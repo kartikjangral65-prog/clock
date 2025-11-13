@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> digital clock </title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #222;
+                color:#fff;
+                font-family: arial,sans-serif;
+            }
+            .clock {
+                font-size: 50px;
+                font-weight: bold;
+                background: #333;
+                padding:20px 40px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(255,255,255,0.2);
+            }
+        </style>
+    </head>
+       <body>
+         <div class="clock" id="clock"> 00:00:00 </div>
+
+         <script>
+            function updateclock() {
+                let now = new Date();
+                let hours = now.getHours().toString().padStart(2,'0');
+                let minutes = now.getMinutes().toString().padStart(2,'0');
+                let seconds = now.getSeconds().toString().padStart(2,'0');
+
+                document.getElementById("clock").innerText = hours+":"+minutes+":"+seconds;
+            }
+
+            setInterval(updateclock,1000);
+            updateclock(); //ipdate immediately on page load
+         </script>
+       </body>
+</html>
